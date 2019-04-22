@@ -1,12 +1,11 @@
 from django.contrib import admin
 
-from .models import PorjectModel
+from .models import Project, Skill
 
 
-@admin.register(PorjectModel)
+@admin.register(Project)
 class ProjectsAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
         "title",
         "description",
         "github",
@@ -14,5 +13,18 @@ class ProjectsAdmin(admin.ModelAdmin):
         "dateAdded",
         "lastModified",
     )
-    search_fields = ("id", "title", "dateAdded")
-    list_per_page = 10
+    search_fields = ("title", "dateAdded")
+    list_filter = ("dateAdded", "lastModified")
+    list_per_page = 15
+
+    def skills_display(self, obj):
+        return ", ".join([str(s) for s in obj.skills.all()])
+
+    # skills_display.short_description = "Skills"
+
+
+@admin.register(Skill)
+class SkillsAdmin(admin.ModelAdmin):
+    list_display = ("skill", "language", "general")
+    search_fields = ("skill", "language", "general")
+    list_filter = ("language", "general")
