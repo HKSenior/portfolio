@@ -1,0 +1,173 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+section {
+  font-size: 1.1rem;
+}
+
+a:hover {
+  color: #FBF3AC;
+}
+
+.iframe-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+.bg-yellow {
+  background-color: #F9DF45;
+}
+
+.bg-red {
+  background-color: #E8533C;
+}
+
+.bg-light-green {
+  background-color: #B9CB3F;
+}
+
+.link-icon-color > a {
+  color: black;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+/******************/
+#particles-js {
+  height: 100vh;
+  background-color: #28943F;
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(40, 148, 63, 0.9)), to(#28943f));
+  background: linear-gradient(rgba(40, 148, 63, 0.9), #28943f);
+}
+
+/******************/
+/******************/
+.banner-heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-weight: 800;
+}
+
+.navbar {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(23, 53, 71, 0.8)), to(rgba(23, 53, 71, 0.9)));
+  background: linear-gradient(rgba(23, 53, 71, 0.8), rgba(23, 53, 71, 0.9));
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand:hover {
+  -webkit-animation-name: rubberBand;
+          animation-name: rubberBand;
+}
+
+.navbar-brand, .nav-link {
+  color: #FBF3AC;
+}
+
+#main-navbar > .navbar-nav > li:hover {
+  -webkit-animation-name: heartBeat;
+          animation-name: heartBeat;
+}
+
+.fas.fa-bars {
+  color: black;
+  font-size: 2rem;
+}
+
+/******************/
+/******************/
+.card-size {
+  width: 18rem;
+}
+
+.card-font {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.card-prg-font {
+  font-size: 0.6rem;
+}
+
+/******************/
+/******************/
+.list-style {
+  list-style-type: none;
+}
+
+.list-icon {
+  text-align: center;
+}
+
+/******************/
+/******************/
+footer {
+  font-weight: 600;
+}
+
+.footer-link-con > a:link {
+  text-decoration: none;
+}
+
+/******************/
+/******************/
+@media (min-width: 300px) {
+  html {
+    font-size: 0.8rem;
+  }
+  .nav a {
+    font-size: 1.5rem;
+  }
+  .banner-heading > h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 0.9rem;
+  }
+  .nav a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 1rem;
+  }
+  .nav a {
+    font-size: 1rem;
+  }
+}
+
+/******************/
+/*# sourceMappingURL=main.css.map */
