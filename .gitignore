@@ -140,4 +140,4 @@ dmypy.json
 **/.vscode
 
 # Django static files
-static/
+/static/
