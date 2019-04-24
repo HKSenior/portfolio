@@ -14,6 +14,24 @@ a:hover {
   color: #FBF3AC;
 }
 
+.icon-rocket {
+  color: #007bff;
+}
+
+.btn-download > a {
+  color: white;
+  text-decoration: none;
+}
+
+.vertical-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .iframe-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -125,6 +143,13 @@ a:hover {
 
 .list-icon {
   text-align: center;
+}
+
+/******************/
+/******************/
+#contact {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0072ff), to(#00c6ff));
+  background: linear-gradient(#0072ff, #00c6ff);
 }
 
 /******************/

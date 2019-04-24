@@ -36,6 +36,6 @@ document.getElementById('nav-resume').addEventListener('click', () => {
 });
 document.getElementById('nav-contactme').addEventListener('click', () => {
     $('html, body').animate({
-        scrollTop: ($('#resume').offset().top)
+        scrollTop: ($('#contact').offset().top)
     }, 100);
 });

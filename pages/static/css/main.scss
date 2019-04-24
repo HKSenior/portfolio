@@ -14,18 +14,26 @@ a:hover {
     color: #FBF3AC;
 }
 
+.icon-rocket {
+    color: #007bff;
+}
+
+.btn-download > a {
+    color: white;
+    text-decoration: none;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
 .iframe-container {
     display: flex;
     width: 60%;
     // height: 60%;
     flex-direction: column;
     overflow: hidden;
-
-    // display: block;
-    // position: relative;
-    // width: 100%;
-    // height: 60%;
-    // overflow: hidden;
 }
 
 .bg-yellow {
@@ -138,6 +146,15 @@ a:hover {
 
 
 /******************/
+// Contact Form
+#contact {
+    background: linear-gradient(#0072ff, #00c6ff);
+}
+// End of Contact Form
+/******************/
+
+
+/******************/
 // Footer
 footer {
     font-weight: 600;
@@ -172,6 +189,5 @@ footer {
 @media (min-width: 1250px) {
     // .iframe-container { width: 70%; }
 }
-
 // End of Media Queries
 /******************/
