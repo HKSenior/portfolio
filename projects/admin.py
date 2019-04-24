@@ -12,15 +12,15 @@ class ProjectsAdmin(admin.ModelAdmin):
         "url",
         "dateAdded",
         "lastModified",
+        "Skills",
+        "image",
     )
     search_fields = ("title", "dateAdded")
     list_filter = ("dateAdded", "lastModified")
     list_per_page = 15
 
-    def skills_display(self, obj):
+    def Skills(self, obj):
         return ", ".join([str(s) for s in obj.skills.all()])
-
-    # skills_display.short_description = "Skills"
 
 
 @admin.register(Skill)

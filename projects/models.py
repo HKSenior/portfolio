@@ -2,26 +2,31 @@ from django.db import models
 
 
 class Skill(models.Model):
-    PYTHON = "PY"
-    CPP = "CPP"
-    C = "C"
-    JAVASCRIPT = "JS"
-    TYPESCRIPT = "TS"
-    HTML = "HTML"
-    CSS = "CSS"
+    LANG_SHORT_HAND = {
+        'PYTHON': "PY",
+        'CPP': "CPP",
+        'C': "C",
+        'JAVASCRIPT': "JS",
+        'TYPESCRIPT': "TS",
+        'HTML': "HTML",
+        'CSS': "CSS"
+    }
     LANGUAGES = (
-        (PYTHON, "Python"),
-        (CPP, "C++"),
-        (C, "C"),
-        (JAVASCRIPT, "JavaScript"),
-        (TYPESCRIPT, "TypeScript"),
-        (HTML, "HTML"),
-        (CSS, "CSS"),
+        (LANG_SHORT_HAND['PYTHON'], "Python"),
+        (LANG_SHORT_HAND['CPP'], "C++"),
+        (LANG_SHORT_HAND['C'], "C"),
+        (LANG_SHORT_HAND['JAVASCRIPT'], "JavaScript"),
+        (LANG_SHORT_HAND['TYPESCRIPT'], "TypeScript"),
+        (LANG_SHORT_HAND['HTML'], "HTML"),
+        (LANG_SHORT_HAND['CSS'], "CSS"),
     )
 
     skill = models.CharField(max_length=100)
     language = models.CharField(
-        max_length=4, choices=LANGUAGES, default=PYTHON, blank=True
+        max_length=4,
+        choices=LANGUAGES,
+        default=LANG_SHORT_HAND['PYTHON'],
+        blank=True
     )
     general = models.BooleanField(default=False)
 
@@ -37,6 +42,7 @@ class Project(models.Model):
     dateAdded = models.DateField(auto_now_add=True)
     lastModified = models.DateTimeField(auto_now=True)
     skills = models.ManyToManyField(Skill, related_name="skills")
+    image = models.ImageField(upload_to="%Y/%m/%d", blank=True, null=True)
 
     def __str__(self):
         return self.title
