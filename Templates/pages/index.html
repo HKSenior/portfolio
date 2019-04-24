@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Skills -->
+    <section class="container-fluid bg-yellow py-5" id="skills">
+        <h1 class="text-center pt-5 mb-5" id="skills-header">Skills</h1>
+        <div class="container w-md-75 w-lg-50 mb-3 px-5 pb-5">
+            <!-- General Skills Jumbotron -->
+            <div class="jumbotron jumbotron-fluid bg-yellow pt-0 mb-0">
+                <div class="container">
+                    <h3 class="text-center mb-4">General Skills</h3>
+                    {% if generalSkills %}
+                        <div class="row mx-auto justify-content-center">
+                            {% for skill in generalSkills %}
+                                <span class="badge badge-pill badge-primary shadow col-xs-12 col-md-6 col-lg-3 py-3 px-1 my-2 mx-2">{{ skill.skill }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- End of General Skills Jumbotron -->
+
+            {% if langSpecificSkills %}
+            <div class="card-deck">
+                {% for lang, skills in langSpecificSkills.items %}
+                    <div class="card shadow-lg card-font">
+                        <h4 class="card-title text-center mt-5">{{ lang }}</h4>
+                        <div class="card-body mb-4">
+                            <div class="container-fluid">
+                                <div class="row mx-auto justify-content-center">
+                                    {% for skill in skills %}
+                                        <span class="badge badge-pill badge-primary col-xs-12 col-md-6 col-lg-5 py-2 px-1 my-1 mx-2">{{ skill }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!--End of Card Deck -->
+        </div>
+    </section>
+    <!-- End of Skills -->
+
+    <!-- Projects -->
+    <section class="container-fluid bg-red py-5" id="projects">
+        <h1 class="text-center py-5">Projects</h1>
+        {% if prgSet %}
+            <div class="container px-5 pb-5">
+                {% for prg in prgSet %}
+                    <div class="card shadow-lg mb-4">
+                        <div class="row no-gutters">
+                            {% if prg.image %}
+                                <div class="col-md-5 vertical-center mt-3 mt-md-0 px-3">
+                                    <img src="{{ prg.image.url }}" class="card-img" alt="{{ prg.title }}">
+                                </div>
+                            {% endif %}
+                            <!-- Card content -->
+                            <div class="col-md-7 my-auto">
+                                <!-- Card Body -->
+                                <div class="card-body text-center pl-1">
+                                    <h4 class="card-title mb-4">{{ prg.title }}</h4>
+                                    <div class="container-fluid">
+                                        <div class="row mx-auto justify-content-center">
+                                            {% for skill in prg.skills.all %}
+                                                <span class="badge badge-pill badge-primary col-xs-12 col-md-6 col-lg-3 py-2 px-1 my-1 mx-2">{{ skill.skill }}</span>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="row text-center my-3">{{ prg.description }}</div>
+                                        <div class="row mx-auto justify-content-center">
+                                            <a class="btn btn-danger mr-3" href="{{ prg.github }}">Github</a>
+                                            <a class="btn btn-secondary ml-3" href="{{ prg.url }}">Visit Site</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of card body -->
+                            </div>
+                            <!-- End of Card content -->
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+    <!-- End of Projects -->
+
+    <!-- Resume -->
+    <section class="container-fluid bg-light-green py-5" id="resume">
+        <h1 class="text-center py-5">Resume</h1>
+        <!-- Download button container -->
+        <div class="container w-50 mb-5">
+            <div class="row">
+                <!-- Word button -->
+                <div class="col-xs-12 col-md-6 mb-4 text-center">
+                    <button type="submit" class="btn btn-primary btn-download p-3">
+                        <a href="https://docs.google.com/document/d/1B6HXSH5KFcMRT79jydW-ppGSTBjWELgovZ5Jn0Ope_0/export?format=doc" download="Hassani King Senior - Resume">
+                            <i class="fas fa-file-word fa-2x"></i>
+                            <p class="mb-0 mt-2">Download</p>
+                        </a>
+                    </button>
+                </div>
+                <!-- End of word button -->
+
+                <!-- PDF button -->
+                <div class="col-xs-12 col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary btn-download p-3">
+                        <a href="https://docs.google.com/document/d/1B6HXSH5KFcMRT79jydW-ppGSTBjWELgovZ5Jn0Ope_0/export?format=pdf" download="Hassani King Senior - Resume">
+                            <i class="fas fa-file-pdf fa-2x"></i>
+                            <p class="mb-0 mt-2">Download</p>
+                        </a>
+                    </button>
+                </div>
+                <!-- End of PDF button -->
+            </div>
+        </div>
+        <!-- End of Download button container -->
+
+        <!-- https://docs.google.com/document/d/1B6HXSH5KFcMRT79jydW-ppGSTBjWELgovZ5Jn0Ope_0/export?format=doc -->
+        <div class="container d-none d-xl-flex iframe-container embed-responsive embed-responsive-16by9 mt-2">
+            <iframe src="https://docs.google.com/document/d/e/2PACX-1vRyvJlzO0RHt18qUC8l9-RR9jpDcHegCcFuYCyoyXzYLkk_D2rtt4r7UMqKCZ1unrZhuRAFjcB9gCQe/pub?embedded=true"></iframe>
+        </div>
+    </section>
+    <!-- End of Resume -->
+
+{% endblock %}
