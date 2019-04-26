@@ -1,4 +1,5 @@
 {% load static %}
+<!-- Contact Me -->
 <section class="container-fluid" id="contact">
     <div class="container">
         <div class="text-center pt-5 pb-3">
@@ -6,21 +7,22 @@
             <h3 class="mt-4">Leave me a Message</h3>
         </div>
         <form method="post" class="pt-4 pb-5">
+            {% csrf_token %}
             <div class="row h-100">
                 <div class="col-md-6 my-auto">
                     <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                        {{ form.name }}
                     </div>
                     <div class="form-group">
-                        <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                        {{ form.email }}
                     </div>
                     <div class="form-group">
-                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                        {{ form.phoneNumber }}
                     </div>
                 </div>
                 <div class="col-md-6 my-auto">
                     <div class="form-group">
-                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                        {{ form.message }}
                     </div>
                 </div>
             </div>
@@ -32,3 +34,4 @@
         </form>
     </div>
 </section>
+<!-- End of Contact Me -->
