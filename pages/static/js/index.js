@@ -39,3 +39,7 @@ document.getElementById('nav-contactme').addEventListener('click', () => {
         scrollTop: ($('#contact').offset().top)
     }, 100);
 });
+
+setTimeout(function() {
+    $('#message').fadeOut('slow')
+}, 3000);
