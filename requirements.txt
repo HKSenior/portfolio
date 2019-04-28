@@ -9,6 +9,7 @@ django-sendgrid-v5==0.8.0
 entrypoints==0.3
 flake8==3.7.7
 future==0.17.1
+gunicorn==19.9.0
 mccabe==0.6.1
 phonenumbers==8.10.10
 Pillow==6.0.0
