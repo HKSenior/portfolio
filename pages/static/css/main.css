@@ -10,6 +10,12 @@ section {
   font-size: 1.1rem;
 }
 
+span {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 a:hover {
   color: #FBF3AC;
 }
