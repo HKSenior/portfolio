@@ -53,6 +53,18 @@ class IndexView(TemplateView):
             )
             contact.save()
 
+            send_mail(
+                'Hassani - Thank you for your message',
+                """
+                name -> {}
+                email -> {}
+                phoneNumber -> {}
+                message -> {}
+                """.format(name, email, phoneNumber, message),
+                config('EMAIL_DOMAIN'),
+                [config('EMAIL_PERSONAL')]
+            )
+
             messages.success(
                 request,
                 "Thank you and I will get back to you as soon as possible."
