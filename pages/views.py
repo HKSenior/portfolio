@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 
 from decouple import config
 
@@ -27,9 +27,11 @@ class IndexView(TemplateView):
                 langSpecificSkillsDict[k] = querySet
 
         form = ContactForm()
+        formUrl = config('FORM_URL')
 
         context = {
             "form": form,
+            "formUrl": formUrl,
             "prgSet": projectSet,
             "generalSkills": general,
             "langSpecificSkills": langSpecificSkillsDict
@@ -55,8 +57,8 @@ class IndexView(TemplateView):
 
             elist = []
             elist.append(config('EMAIL_PERSONAL'))
-            send_mail(
-                'Hassani - Thank you for your message',
+            email = EmailMessage(
+                'hassaniprojects.com - Inquiry',
                 """
                 name -> {}
                 email -> {}
@@ -64,7 +66,8 @@ class IndexView(TemplateView):
                 message -> {}
                 """.format(name, email, phoneNumber, message),
                 config('EMAIL_DOMAIN'),
-                elist
+                elist,
+                reply_to=elist,
             )
 
             messages.success(

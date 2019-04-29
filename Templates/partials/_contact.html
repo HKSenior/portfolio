@@ -6,32 +6,34 @@
             <i class="fas fa-rocket fa-4x"></i>
             <h3 class="mt-4">Leave me a Message</h3>
         </div>
-        <form method="post" class="pt-4 pb-5">
-            {% csrf_token %}
-            <div class="row h-100">
-                <div class="col-md-6 my-auto">
-                    <div class="form-group">
-                        {{ form.name }}
+        {% if formUrl and form %}
+            <form method="post" action="{{ formUrl }}" class="pt-4 pb-5">
+                {% csrf_token %}
+                <div class="row h-100">
+                    <div class="col-md-6 my-auto">
+                        <div class="form-group">
+                            {{ form.name }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.phoneNumber }}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        {{ form.email }}
-                    </div>
-                    <div class="form-group">
-                        {{ form.phoneNumber }}
+                    <div class="col-md-6 my-auto">
+                        <div class="form-group">
+                            {{ form.message }}
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 my-auto">
-                    <div class="form-group">
-                        {{ form.message }}
+                <div class="row mt-3">
+                    <div class="col-12 text-center form-group">
+                        <button type="submit" class="btn btn-primary rounded">Send Message</button>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-12 text-center form-group">
-                    <button type="submit" class="btn btn-primary rounded">Send Message</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        {% endif %}
     </div>
 </section>
 <!-- End of Contact Me -->
