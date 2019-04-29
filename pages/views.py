@@ -53,6 +53,8 @@ class IndexView(TemplateView):
             )
             contact.save()
 
+            elist = []
+            elist.append(config('EMAIL_PERSONAL'))
             send_mail(
                 'Hassani - Thank you for your message',
                 """
@@ -62,7 +64,7 @@ class IndexView(TemplateView):
                 message -> {}
                 """.format(name, email, phoneNumber, message),
                 config('EMAIL_DOMAIN'),
-                [config('EMAIL_PERSONAL')]
+                elist
             )
 
             messages.success(
