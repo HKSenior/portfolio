@@ -103,8 +103,7 @@ a:hover {
 }
 
 .navbar-brand:hover {
-  -webkit-animation-name: rubberBand;
-          animation-name: rubberBand;
+  cursor: pointer;
 }
 
 .navbar-brand, .nav-link {
@@ -114,6 +113,7 @@ a:hover {
 #main-navbar > .navbar-nav > li:hover {
   -webkit-animation-name: heartBeat;
           animation-name: heartBeat;
+  cursor: pointer;
 }
 
 .fas.fa-bars {

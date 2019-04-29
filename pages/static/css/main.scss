@@ -31,7 +31,6 @@ a:hover {
 .iframe-container {
     display: flex;
     width: 60%;
-    // height: 60%;
     flex-direction: column;
     overflow: hidden;
 }
@@ -95,7 +94,7 @@ a:hover {
 }
 
 .navbar-brand:hover {
-    animation-name: rubberBand;
+    cursor: pointer;
 }
 
 .navbar-brand, .nav-link {
@@ -104,6 +103,7 @@ a:hover {
 
 #main-navbar > .navbar-nav > li:hover {
     animation-name: heartBeat;
+    cursor: pointer;
 }
 
 .fas.fa-bars {
