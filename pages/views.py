@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 
 from decouple import config
 
@@ -55,23 +55,39 @@ class IndexView(TemplateView):
             )
             contact.save()
 
-            elist = []
-            elist.append(config('EMAIL_PERSONAL'))
-            email = EmailMessage(
-                'hassaniprojects.com - Inquiry',
-                """
-                name -> {}
-                email -> {}
-                phoneNumber -> {}
-                message -> {}
-                """.format(name, email, phoneNumber, message),
-                config('EMAIL_DOMAIN'),
-                elist,
-                reply_to=elist,
+            subject = 'hassaniprojects.com - Inquiry'
+            from_email = config('DEFAULT_FROM_EMAIL')
+            to_email = [config('EMAIL_PERSONAL')]
+            message = """
+            name - {}
+            email - {}
+            phoneNumber - {}
+            message - {}""".format(
+                name,
+                email,
+                phoneNumber,
+                message
             )
 
-            messages.success(
-                request,
-                "Thank you and I will get back to you as soon as possible."
+            _ = send_mail(
+                subject,
+                message,
+                from_email,
+                to_email,
+                fail_silently=config('EMAIL_FAIL_SILENTLY', cast=bool)
             )
+
+            if _ == 1:
+                messages.success(
+                    request,
+                    "Thank you and I will get back to you as soon as possible."
+                )
+            elif _ == 0:
+                messages.error(
+                    request,
+                    "A problem occured while submitting the form."
+                )
+                
+                
+
             return redirect('index')
