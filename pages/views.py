@@ -85,9 +85,17 @@ class IndexView(TemplateView):
             elif _ == 0:
                 messages.error(
                     request,
-                    "A problem occured while submitting the form."
+                    "A problem occured while submitting the form. Please feel "
+                    "free to send me a direct email to "
+                    + config('EMAIL_PERSONAL')
                 )
-                
-                
 
+            return redirect('index')
+        else:
+            messages.error(
+                request,
+                "A problem occured while submitting the form. Please feel "
+                "free to send me a direct email to "
+                + config('EMAIL_PERSONAL')
+            )
             return redirect('index')
