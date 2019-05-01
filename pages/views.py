@@ -89,12 +89,11 @@ class IndexView(TemplateView):
                     "free to send me a direct email to "
                     + config('EMAIL_PERSONAL')
                 )
-
             return redirect('index')
         else:
             messages.error(
                 request,
-                "A problem occured while submitting the form. Please feel "
+                "A problem occured while submitting the form. Feel "
                 "free to send me a direct email to "
                 + config('EMAIL_PERSONAL')
             )
